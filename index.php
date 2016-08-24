@@ -2,6 +2,11 @@
 
 require __DIR__.'/boot.php';
 
+$query=$entityManager->createQuery('SELECT p.id FROM Person p');
+$data=$query->execute();
+
+var_dump($data);
+/*
 $department=new \Models\Department();
 $department->setTitle('Отдел продаж');
 
@@ -14,6 +19,7 @@ $entityManager->persist($department);
 $entityManager->persist($person);
 
 $entityManager->flush();
+*/
 /*
 $repository=$entityManager->getRepository(\Models\Person::class);
 
