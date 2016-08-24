@@ -20,6 +20,11 @@ class Person
     protected $age;
 
     /**
+     * @ManyToOne(targetEntity="Department", inversedBy="persons")
+     */
+    protected $department;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -58,5 +63,21 @@ class Person
     {
         $this->age = $age;
 
+    }
+
+    /**
+     * @param mixed $department
+     */
+    public function setDepartment($department)
+    {
+        $this->department = $department;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDepartment()
+    {
+        return $this->department;
     }
 }

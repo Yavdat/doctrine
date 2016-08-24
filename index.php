@@ -2,6 +2,19 @@
 
 require __DIR__.'/boot.php';
 
+$department=new \Models\Department();
+$department->setTitle('Отдел продаж');
+
+$person=new \Models\Person();
+$person->setName('Снегирева');
+$person->setAge(25);
+$person->setDepartment($department);
+
+$entityManager->persist($department);
+$entityManager->persist($person);
+
+$entityManager->flush();
+/*
 $repository=$entityManager->getRepository(\Models\Person::class);
 
 $person=$repository->find(2);
@@ -14,7 +27,7 @@ $entityManager->flush();
 //$person2=$repository->find(2);
 $person2=$entityManager->find(\Models\Person::class,2);
 var_dump($person2);
-
+*/
 //Realised "create"(CRUD)
 //$person=new \Models\Person();
 //$person->setName('Petrov');
